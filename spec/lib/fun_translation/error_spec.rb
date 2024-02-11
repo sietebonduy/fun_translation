@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe FunTranslation::Error do
   include FunTranslation::Request
 
@@ -24,9 +26,9 @@ RSpec.describe FunTranslation::Error do
         text: nil
       )
     end.to raise_error(
-             described_class::BadRequest,
-             'Bad Request: text is missing.'
-           )
+      described_class::BadRequest,
+      'Bad Request: text is missing.'
+    )
   end
 
   it 'handles error 404' do
@@ -52,9 +54,9 @@ RSpec.describe FunTranslation::Error do
         text: ''
       )
     end.to raise_error(
-             described_class::NotFound,
-             'Not Found'
-           )
+      described_class::NotFound,
+      'Not Found'
+    )
   end
 
   it 'handles unknown error' do

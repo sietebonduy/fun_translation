@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 RSpec.describe FunTranslation::Client do
   describe '#translate' do
     it 'translates as yoda' do
       text = 'Master Obi Wan lost a planet'
       translated = 'A planet, master Obi Wan lost'
       data = {
-        success: {total: 1},
+        success: { total: 1 },
         contents: {
           translated: translated,
           text: text,
@@ -15,13 +17,13 @@ RSpec.describe FunTranslation::Client do
       stub_request(
         :post,
         'https://api.funtranslations.com/translate/yoda.json'
-      ).
-        with(body: { text: text }).
-        to_return(
+      )
+        .with(body: { text: text })
+        .to_return(
           status: 200,
           body: JSON.dump(data)
         )
-      
+
       translation = test_client.translate :yoda, text
 
       expect(translation.translated_text).to eq(translated)
@@ -33,11 +35,11 @@ RSpec.describe FunTranslation::Client do
       text = 'Welcome'
       audio = 'data:audio/wave;base64,UklGRjiBCQBXQVZFZm1'
       data = {
-        success: {total: 1},
+        success: { total: 1 },
         contents: {
           translated: { audio: audio },
           text: text,
-          translation: { 
+          translation: {
             source: 'english',
             destination: 'morse audio'
           }
@@ -47,19 +49,19 @@ RSpec.describe FunTranslation::Client do
       stub_request(
         :post,
         'https://api.funtranslations.com/translate/morse/audio.json'
-      ).
-        with(body: { text: text }).
-        to_return(
+      )
+        .with(body: { text: text })
+        .to_return(
           status: 200,
           body: JSON.dump(data)
         )
 
       translation = test_client.translate 'morse/audio', text
-      
+
       expect(translation.audio).to eq(audio)
       expect(translation.original_text).to eq(text)
       expect(translation.translation).to eq(
-        { 
+        {
           'source' => 'english',
           'destination' => 'morse audio'
         }
@@ -70,7 +72,7 @@ RSpec.describe FunTranslation::Client do
       text = 'Master Obi Wan lost a planet'
       translated = 'A planet, master Obi Wan lost'
       data = {
-        success: {total: 1},
+        success: { total: 1 },
         contents: {
           translated: translated,
           text: text,
@@ -81,20 +83,20 @@ RSpec.describe FunTranslation::Client do
       stub_request(
         :post,
         'https://api.funtranslations.com/translate/yoda.json'
-      ).
-        with(
+      )
+        .with(
           body: { text: text },
           headers: {
             'X-Funtranslations-Api-Secret' => 'my token',
             'Content-Type' => 'application/x-www-form-urlencoded',
             'User-Agent' => "fun_translation gem/#{FunTranslation::VERSION}"
           }
-        ).
-        to_return(
+        )
+        .to_return(
           status: 200,
           body: JSON.dump(data)
         )
-      
+
       translation = test_client('my token').translate :yoda, text
 
       expect(translation.translated_text).to eq(translated)

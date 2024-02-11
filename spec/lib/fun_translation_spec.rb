@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe FunTranslation do
   specify '.client' do
     expect(described_class.client).to be_an_instance_of(described_class::Client)

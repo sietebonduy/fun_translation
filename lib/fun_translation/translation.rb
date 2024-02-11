@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FunTranslation
   class Translation
     attr_reader :original_text, :translated_text, :translation, :audio, :speed, :tone

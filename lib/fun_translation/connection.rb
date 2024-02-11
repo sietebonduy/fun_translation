@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FunTranslation
   module Connection
     BASE_URL = 'https://api.funtranslations.com'

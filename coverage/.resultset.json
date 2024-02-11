@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -19,6 +21,8 @@
       },
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation/client.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -42,19 +46,23 @@
       },
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation/request.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
-          null,
-          1,
-          6,
-          null,
-          null,
-          null,
           null,
           1,
           6,
           null,
+          null,
+          null,
+          null,
+          1,
+          6,
+          0,
+          null,
+          6,
           null,
           null,
           6,
@@ -73,6 +81,8 @@
       },
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation/connection.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -106,6 +116,8 @@
       },
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation/error.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -151,6 +163,8 @@
       },
       "/Users/skrach/Desktop/myGem/fun_translation/lib/fun_translation/translation.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -172,6 +186,6 @@
         ]
       }
     },
-    "timestamp": 1707689519
+    "timestamp": 1707690631
   }
 }

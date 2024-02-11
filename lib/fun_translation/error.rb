@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module FunTranslation
   class Error < StandardError
-  ClientError = Class.new(self)
+    ClientError = Class.new(self)
     ServerError = Class.new(self)
 
     BadRequest = Class.new(ClientError)
