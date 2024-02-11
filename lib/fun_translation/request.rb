@@ -13,12 +13,13 @@ module FunTranslation
         raw_response.body :
         JSON.parse(raw_response.body)
 
-      respond_with_error(raw_response.status, body) if !raw_response.success?
+      respond_with_error(raw_response.status, body['error']) unless raw_response.success?
+
       body['contents']
     end
     
     def respond_with_error(code, body)
-      raise(FunTranslation::Error, body) unless FunTranslation::Error::ERRORS.key?(code)
+      raise(FunTranslation::Error.from_response(body)) unless FunTranslation::Error::ERRORS.key?(code)
 
       raise FunTranslation::Error::ERRORS[code].from_response(body)
     end

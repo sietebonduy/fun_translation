@@ -1,6 +1,6 @@
 module FunTranslation
-  class Error < StandartError
-    ClientError = Class.new(self)
+  class Error < StandardError
+  ClientError = Class.new(self)
     ServerError = Class.new(self)
 
     BadRequest = Class.new(ClientError)
@@ -20,7 +20,6 @@ module FunTranslation
     ERRORS = {
       400 => FunTranslation::Error::BadRequest,
       401 => FunTranslation::Error::Unauthorized,
-      403 => FunTranslation::Error::Forbidden,
       404 => FunTranslation::Error::NotFound,
       405 => FunTranslation::Error::MethodNotAllowed,
       406 => FunTranslation::Error::NotAcceptable,
@@ -34,7 +33,7 @@ module FunTranslation
       504 => FunTranslation::Error::GatewayTimeout
     }.freeze
 
-    def self.from_responce(body)
+    def self.from_response(body)
       msg = body['detail'] || body['message']
       new msg.to_s
     end

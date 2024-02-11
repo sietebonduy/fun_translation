@@ -18,6 +18,9 @@ Gem::Specification.new do |spec|
   # spec.extra_rdoc_files = ['README.md']
   spec.require_paths    = ['lib']
 
+  spec.add_dependency 'rubocop', '~> 1.6'
+  spec.add_dependency 'rubocop-performance', '~> 1.5'
+  spec.add_dependency 'rubocop-rspec', '~> 2.0'
   spec.add_dependency 'faraday', '~> 2.6'
   spec.add_dependency 'zeitwerk', '~> 2.4'
 
